@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block title %}Product{% endblock %}
+{% block menu %}
+    <a href="{% url 'product_add_view' %}">Добавить товар</a>
+    <a href="{% url 'category_add_view' %}">Добавить категорию товара</a>
+{% endblock %}
+{% block content %}
+    <div class="container">
+        <h1>Задание</h1>
+        <p>Заголовок: {{ product.title }}</p>
+        <p>Описание: {{ product.description }}</p>
+        <p>Подробнее: {{ product.category }}</p>
+        <p>Цена: </p>
+        <p>Изображение: {{ product.image }}</p>
+    </div>
+{% endblock %}
