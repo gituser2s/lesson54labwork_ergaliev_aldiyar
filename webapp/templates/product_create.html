@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% block title %}Добавить{% endblock %}
+{% block content %}
+    <h1>Создать новый товар</h1>
+    <div class="form">
+        <form action="{% url 'product_add_view' %}" method="post">
+            {% csrf_token %}
+            <div class="Title-Block">
+                <label for="title">Заголовок</label>
+                <input type="text" id="title" name="title" required="required">
+            </div>
+            <div class="Description-Block">
+                <label for="description">Описание</label>
+                <input type="text" id="description" name="description">
+            </div>
+            <div class="Category-Block">
+                <select id="category_id" name="category_id" class="select">
+                    <option selected disabled>Select Category</option>
+                    {% for c in category %}
+                        <option value="{{c.id}}">{{c.title}}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="Image-Block">
+                <label for="image">Изображение</label>
+                <input type="text" id="image" name="image">
+            </div>
+            <div class="Price-Block">
+                <label for="price">Цена</label>
+                <input type="number" id="price" name="price">
+            </div>
+            <div class="sub_button">
+                <input type="submit">
+            </div>
+        </form>
+    </div>
+{% endblock %}
+</body>
+</html>
