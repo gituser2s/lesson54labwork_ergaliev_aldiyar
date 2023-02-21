@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block title %}Добавить{% endblock %}
+{% block content %}
+    <h1>Создать новую категорию</h1>
+    <div class="form">
+        <form action="{% url 'category_add_view' %}" method="post">
+            {% csrf_token %}
+            <div class="Title-Block">
+                <label for="title">Наименование</label>
+                <input type="text" id="title" name="title" required="required">
+            </div>
+            <div class="Description-Block">
+                <label for="description">Описание</label>
+                <input type="text" id="description" name="description">
+            </div>
+            <div class="sub_button">
+                <input type="submit">
+            </div>
+        </form>
+    </div>
+{% endblock %}
+</body>
+</html>
